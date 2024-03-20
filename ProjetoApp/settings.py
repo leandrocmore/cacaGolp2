@@ -25,7 +25,8 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 
 DEBUG = os.environ.get("DEBUG","False").lower() == "true" 
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(",")
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS')[1:-1].split(",")
+
 
 
 # Application definition
