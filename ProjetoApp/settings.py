@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 
 DEBUG = os.environ.get("DEBUG","False").lower() == "true" 
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS','').split(" ")
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS','').split(',')
 
 
 # Application definition
@@ -129,7 +129,4 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-##CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOW_ORIGINS = [
-    "http://192.168.05.04:8080",
-]
+
