@@ -6,5 +6,9 @@ from .models import UserModels
 
 urlpatterns = [
     path('',views.getUser, name='getUser'),
-    path('data/<int:pk>/',views.userDetail, name= 'userDetail')
+    path('data/',views.userDetail, name= 'userDetail'),
+
+
+
+
     ]
