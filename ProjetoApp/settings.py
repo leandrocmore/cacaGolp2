@@ -1,7 +1,7 @@
-
 import os
 import dj_database_url
 from pathlib import Path
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -10,7 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
-
+# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 DEBUG = os.environ.get("DEBUG","False").lower() == "true" 
@@ -22,7 +22,6 @@ ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS')[1:-1].split(" ")
 if 'cacagolp2-5.onrender.com' not in ALLOWED_HOSTS:
     ALLOWED_HOSTS.append('cacagolp2-5.onrender.com')
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -32,9 +31,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'AppProjeto.apps.AppProjetoConfig',
     'rest_framework',
-    'corsheaders',
-    'AppProjeto'
 ]
 
 MIDDLEWARE = [
@@ -45,10 +43,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware',
-     
-
 ]
 
 ROOT_URLCONF = 'ProjetoApp.urls'
@@ -73,16 +67,13 @@ WSGI_APPLICATION = 'ProjetoApp.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#database
+# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-
-    
-DATABASE_URL = os.environ.get('DATABASE_URL', 'postgres://apicacagolp2_user:OirH7MvjhCgPhKavzMEvjRUrwXDyLm3w@dpg-cnp2kh6d3nmc73fsid60-a.oregon-postgres.render.com/apicacagolp2')
+DATABASE_URL = os.environ.get('DATABASE_URL', 'postgres://gpspostgram_user:C6tswl2zXKZGDb9AsV9xlRU2xKpFS8tg@dpg-co7k3b4f7o1s738i9brg-a.oregon-postgres.render.com/gpspostgram')
 
 DATABASES = {
     'default': dj_database_url.parse(DATABASE_URL)
-}
-
+    }
 
 
 # Password validation
@@ -125,4 +116,3 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-CORS_ALLOW_ALL_ORIGINS = True
