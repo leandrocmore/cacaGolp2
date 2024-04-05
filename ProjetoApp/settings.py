@@ -15,12 +15,9 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 
 DEBUG = os.environ.get("DEBUG","False").lower() == "true" 
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS')[1:-1].split(" ")
-# Adiciona 'cacagolp2-5.onrender.com' à lista de hosts permitidos se não estiver presente
+ALLOWED_HOSTS = ['cacagolp2-5.onrender.com' ]
 
-
-if 'cacagolp2-5.onrender.com' not in ALLOWED_HOSTS:
-    ALLOWED_HOSTS.append('cacagolp2-5.onrender.com')
+#ALLOWED_HOSTS = ['cacagolp2-5.onrender.com' ]
 
 # Application definition
 
@@ -69,7 +66,7 @@ WSGI_APPLICATION = 'ProjetoApp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASE_URL = os.environ.get('DATABASE_URL', 'postgres://gpspostgram_user:C6tswl2zXKZGDb9AsV9xlRU2xKpFS8tg@dpg-co7k3b4f7o1s738i9brg-a.oregon-postgres.render.com/gpspostgram')
+DATABASE_URL = os.environ.get('DATABASE_URL', "postgres://gpspostgram_user:C6tswl2zXKZGDb9AsV9xlRU2xKpFS8tg@dpg-co7k3b4f7o1s738i9brg-a.oregon-postgres.render.com/gpspostgram")
 
 DATABASES = {
     'default': dj_database_url.parse(DATABASE_URL)
