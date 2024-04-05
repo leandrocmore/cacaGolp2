@@ -15,7 +15,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 
 DEBUG = os.environ.get("DEBUG","False").lower() == "true" 
 
-ALLOWED_HOSTS = ['cacagolp2-5.onrender.com' ]
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 
 #ALLOWED_HOSTS = ['cacagolp2-5.onrender.com' ]
 
