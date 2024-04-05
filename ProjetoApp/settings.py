@@ -66,7 +66,7 @@ WSGI_APPLICATION = 'ProjetoApp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASE_URL = os.environ.get('DATABASE_URL', "postgres://gpspostgram_user:C6tswl2zXKZGDb9AsV9xlRU2xKpFS8tg@dpg-co7k3b4f7o1s738i9brg-a.oregon-postgres.render.com/gpspostgram")
+DATABASE_URL = os.environ.get('DATABASE_URL')
 
 DATABASES = {
     'default': dj_database_url.parse(DATABASE_URL)
